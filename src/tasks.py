@@ -10,7 +10,7 @@ class TaskDefinition:
 
 def get_tasks():
     triage_task = TaskDefinition(
-        description="Classify incoming customer emails and route them to the appropriate department or agent.",
+        description="Classify incoming customer emails and route them to the appropriate department or agent. Currentnly, the only departments are 'Support' and 'Spam'. The email: {email_content}",
         expected_output="A classification of the email and the assigned department or agent.",
         agent_role="Customer Support Triage Agent",
     )
