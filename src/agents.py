@@ -1,5 +1,5 @@
 import os
-from crewai import Agent,
+from crewai import Agent
 from dataclasses import dataclass, field
 from llm import llm
 

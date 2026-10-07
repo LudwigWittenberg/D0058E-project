@@ -1,10 +1,9 @@
-from agents import create_agent, get_agents
+from crew import create_crew
 
 def main():
-    agents = get_agents()
-    for agent_def in agents:
-        agent = create_agent(agent_def)
-        print(f"Created agent: {agent.role} with goal: {agent.goal}")
+    crew = create_crew()
+
+    crew.kickoff()
 
 
 if __name__ == "__main__":
