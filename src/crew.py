@@ -10,7 +10,7 @@ def create_crew():
     agent = create_agent(agents[i])
     task = create_task(tasks[i], agent)
 
-    print(f"Assigned task: {task.description} to agent: {agent.role}")
+    # print(f"Assigned task: {task.description} to agent: {agent.role}")
 
     agents[i] = agent
     tasks[i] = task
