@@ -39,7 +39,7 @@ def get_agents():
       "or features that haven't been confirmed."
       "If you dont know the answer, dont make it up."
     ),
-    # tools=[rag_tool()],
+    tools=[rag_tool()],
   )
 
   review_agent = agent_definition(
