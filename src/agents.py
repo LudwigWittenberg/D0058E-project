@@ -2,6 +2,7 @@ import os
 from crewai import Agent
 from dataclasses import dataclass, field
 from llm import llm
+from tools import rag_tool
 
 # Definition schema
 @dataclass
@@ -38,7 +39,7 @@ def get_agents():
       "or features that haven't been confirmed."
       "If you dont know the answer, dont make it up."
     ),
-    # TODO: Add RAG over the Cinny FAQ/docs
+    # tools=[rag_tool()],
   )
 
   review_agent = agent_definition(
@@ -49,6 +50,7 @@ def get_agents():
       "You compare the draft with the customer's original email and check that every question is answered, "
       "that nothing is made up, and that the tone is friendly, casual English. "
       "Instead of sending feedback back, you fix problems yourself and deliver the final email."
+      "Never write or answer questions that your not sure about. If you dont know the answer, say that the team will look into it instead of guessing."
     ),
   )
 
