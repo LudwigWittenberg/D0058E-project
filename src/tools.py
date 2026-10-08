@@ -4,6 +4,11 @@ from pydantic import BaseModel, Field
 
 COLLECTION_NAME = "cinny-collection"
 
+# Only expose `query`: small models fill similarity_threshold/limit with strings,
+# which fails validation, and a simpler schema makes real tool calls more likely
+class CinnyQuery(BaseModel):
+  query: str = Field(..., description="The customer's question to search for")
+
 def rag_tool():
   embedding_model: ProviderSpec = {
     "provider": "ollama",
@@ -26,6 +31,7 @@ def rag_tool():
     collection_name=COLLECTION_NAME,
     limit=3, # Dont fill the whole count
     name="cinny_knowledge_base",
+    args_schema=CinnyQuery,
     description=(
       "Search Cinny's official FAQ and documentation. "
       "ALWAYS use this before answering any customer question about Cinny, "

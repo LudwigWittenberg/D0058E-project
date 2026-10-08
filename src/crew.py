@@ -44,6 +44,6 @@ def create_crew():
   return Crew(
       agents=agents,
       tasks=tasks,
-      process=Process.hierarchical,
-      manager_agent=create_manager(),
+      # process=Process.hierarchical,
+      # manager_agent=create_manager(),
   )
