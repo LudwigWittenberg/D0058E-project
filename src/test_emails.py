@@ -1,5 +1,3 @@
-from crew import create_crew
-
 # Test emails with the category we expect triage to pick
 TEST_EMAILS = [
     ("SPAM", """Subject: Buy the crafter!
@@ -55,16 +53,3 @@ Alex"""),
 Hej, jag vill att ni raderar mitt konto och all min data. Hur gör jag det?
 Mvh Erik"""),
 ]
-
-
-def main():
-    crew = create_crew()
-    for expected, email in TEST_EMAILS:
-        result = crew.kickoff(inputs={"email_content": email})
-        triage = result.tasks_output[0].raw.strip()
-        print(f"\n{'=' * 70}\nEXPECTED: {expected}\n\n--- EMAIL ---\n{email}")
-        print(f"\n--- TRIAGE ---\n{triage}\n\n--- FINAL REPLY ---\n{result.raw}")
-
-
-if __name__ == "__main__":
-    main()

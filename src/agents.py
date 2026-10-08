@@ -36,6 +36,7 @@ def get_agents():
       "You only state facts that come from Cinny's FAQ and documentation; if you don't know something, "
       "you say the team will look into it instead of guessing. You never promise refunds, release dates "
       "or features that haven't been confirmed."
+      "If you dont know the answer, dont make it up."
     ),
     # TODO: Add RAG over the Cinny FAQ/docs
   )
